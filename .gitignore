@@ -41,3 +41,6 @@ coverage/
 
 # Seed artifacts (generated)
 scripts/seed-local.sql
+
+# Codebase snapshots (generated, local only)
+.codebase/
