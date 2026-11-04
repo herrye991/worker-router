@@ -7,6 +7,8 @@ Live demo: **https://worker-router.refreshktg-dev.workers.dev/** (password `1234
 Development & demo video: **https://m.youtube.com/watch?v=49mIon4WLtc**
 > **TTS Narration generate** by https://ttsmaker.com/ from 00:00 ~ 00:40 & 01:37 ~ 02:06
 
+> **Music background** by `Moavii - Adventure` from https://freetouse.com
+
 A self-hosting-free LLM API gateway that runs entirely on Cloudflare: a single Worker serves both the OpenAI-compatible API and the admin dashboard (monorepo, single port), with Cloudflare D1 as the persistent database. No VPS, no Docker, no Redis, no long-running Node process.
 
 ## Features
