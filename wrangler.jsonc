@@ -12,7 +12,7 @@
     {
       "binding": "DB",
       "database_name": "worker-router",
-      "database_id": "84b9ab8c-8ee6-4da3-8f18-e4f6f7a9aa6a",
+      "database_id": "<YOUR-D1-DATABASE-ID>",
       "migrations_dir": "migrations"
     }
   ],

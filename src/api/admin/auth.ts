@@ -72,6 +72,9 @@ authRoute.get("/me", adminAuthMiddleware, async (c) => {
 });
 
 authRoute.post("/password", adminAuthMiddleware, async (c) => {
+  if ((c.env.DEMO_MODE ?? "").toLowerCase() === "true") {
+    throw new AppError(403, "permission_error", "Password change is disabled on the public demo", "permission_error", false);
+  }
   const body = await c.req.json().catch(() => null);
   const parsed = adminChangePasswordSchema.safeParse(body);
   if (!parsed.success) throw new AppError(400, "validation_error", "current and new password required", "validation_error", false);

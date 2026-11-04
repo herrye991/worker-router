@@ -4,3 +4,5 @@ ENCRYPTION_MASTER_KEY=MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTIzNDU2Nzg5MDE=
 SESSION_SECRET=local-dev-secret
 APP_NAME=WorkerRouter
 ENVIRONMENT=development
+# Set DEMO_MODE=true to disable password changes (public demo).
+DEMO_MODE=false

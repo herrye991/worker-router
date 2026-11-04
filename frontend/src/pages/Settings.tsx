@@ -16,6 +16,8 @@ export function SettingsPage() {
   });
   const [pw, setPw] = React.useState({ currentPassword: "", newPassword: "" });
   const [pwMsg, setPwMsg] = React.useState("");
+  const info = useQuery({ queryKey: ["info"], queryFn: () => api<any>("/api/info"), staleTime: 60000 });
+  const isDemo = !!info.data?.demo;
   async function changePassword() {
     setPwMsg("");
     try {
@@ -31,10 +33,11 @@ export function SettingsPage() {
       <div className="topbar"><div><h2>Settings</h2><p>Gateway configuration</p></div></div>
       <div className="card">
         <h3>Change dashboard password</h3>
+        {isDemo && <p className="muted">Password change is disabled on the public demo.</p>}
         <div className="form-grid">
           <label className="field">Current password<input className="input" type="password" value={pw.currentPassword} onChange={(e) => setPw({ ...pw, currentPassword: e.target.value })} /></label>
           <label className="field">New password (min 6 chars)<input className="input" type="password" value={pw.newPassword} onChange={(e) => setPw({ ...pw, newPassword: e.target.value })} /></label>
-          <div><button className="btn" onClick={changePassword}>Change password</button> {pwMsg && <span className="muted"> {pwMsg}</span>}</div>
+          <div><button className="btn" onClick={changePassword} disabled={isDemo}>Change password</button> {pwMsg && <span className="muted"> {pwMsg}</span>}</div>
         </div>
       </div>
       <div className="card" style={{ marginTop: 14 }}>

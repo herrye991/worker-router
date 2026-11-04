@@ -46,6 +46,7 @@ app.get("/api/info", (c) => {
     version: "0.1.0",
     openaiCompatible: true,
     endpoints: ["/v1/chat/completions", "/v1/models", "/v1/embeddings"],
+    demo: (c.env.DEMO_MODE ?? "false").toLowerCase() === "true",
   });
 });
 
