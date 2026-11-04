@@ -1,0 +1,43 @@
+# Dependencies
+node_modules/
+frontend/node_modules/
+
+# Build outputs
+dist/
+frontend/dist/
+
+# Wrangler / Cloudflare
+.wrangler/
+.wranger/
+.dev.vars
+.dev.vars.local
+
+# Env & secrets (never commit)
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# D1 local state
+.wrangler/state/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+
+# Test artifacts
+coverage/
+.nyc_output/
+
+# Seed artifacts (generated)
+scripts/seed-local.sql

@@ -1,0 +1,6 @@
+# Local dev only. Do not use in production.
+ADMIN_PASSWORD=123456
+ENCRYPTION_MASTER_KEY=MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTIzNDU2Nzg5MDE=
+SESSION_SECRET=local-dev-secret
+APP_NAME=WorkerRouter
+ENVIRONMENT=development

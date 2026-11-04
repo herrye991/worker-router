@@ -1,0 +1,45 @@
+name: CI — build, test & smoke
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-test-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            frontend/package-lock.json
+
+      - name: Install backend deps
+        run: npm ci
+
+      - name: Install frontend deps
+        run: npm --prefix frontend ci
+
+      - name: Backend typecheck
+        run: npm run typecheck
+
+      - name: Frontend build
+        run: npm --prefix frontend run build
+
+      - name: Unit tests
+        run: npm test
+
+      - name: Wrangler deploy dry-run (config + bundle smoke test)
+        run: npx wrangler deploy --dry-run
+        env:
+          CLOUDFLARE_API_TOKEN: dummy
+          CLOUDFLARE_ACCOUNT_ID: dummy
